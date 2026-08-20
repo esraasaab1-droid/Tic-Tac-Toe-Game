@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  font-family: Arial, sans-serif;
+}
+
+/* اللعبة كاملة */
+.board {
+  text-align: center;
+}
+
+/* الحالة */
+.status {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  min-height: 40px;
+}
+
+/* الفائز */
+.status.winner {
+  color: #22c55e;
+  animation: winnerAnimation 0.8s ease-in-out infinite alternate;
+}
+
+/* التعادل */
+.status.draw {
+  color: #facc15;
+  animation: drawAnimation 0.7s ease-in-out infinite alternate;
+}
+
+/* صفوف اللعبة */
+.board-row {
+  display: flex;
+}
+
+/* المربعات */
+.square {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  border: none;
+  border-radius: 15px;
+  background: #334155;
+  color: white;
+  font-size: 55px;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* عند تمرير الماوس */
+.square:hover {
+  background: #475569;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* عند الضغط */
+.square:active {
+  transform: scale(0.92);
+}
+
+/* Animation للفائز */
+@keyframes winnerAnimation {
+  from {
+    transform: scale(1);
+    text-shadow: 0 0 5px #22c55e;
+  }
+
+  to {
+    transform: scale(1.15);
+    text-shadow:
+      0 0 10px #22c55e,
+      0 0 25px #22c55e;
+  }
+}
+
+/* Animation للتعادل */
+@keyframes drawAnimation {
+  from {
+    transform: translateX(-5px);
+  }
+
+  to {
+    transform: translateX(5px);
+  }
+}
