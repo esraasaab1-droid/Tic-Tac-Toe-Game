@@ -1,6 +1,12 @@
 import { useState } from "react";
 import "./App.css";
+import XOGame from './XOGame';
 
+function App() {
+  return <XOGame />;
+}
+
+export default App;
 const winningLines = [
   [0, 1, 2],
   [3, 4, 5],
