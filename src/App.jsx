@@ -1,5 +1,3 @@
-import { useState } from "react";
-import "./App.css";
 import XOGame from './XOGame';
 
 function App() {
